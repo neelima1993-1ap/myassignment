@@ -1,9 +1,19 @@
-<table class="grid" cellpadding="0" cellspacing="0">
+<html>
+<head>
+<style>
+table, th, td, tr {
+    border: 1px solid black;
+    width: 100px;
+}
+</style>
+</head>
+
+<table class="grid" cellpadding="10" cellspacing="0">
 		<thead>
 			<tr>
 				<th>Name</th>
 				<th>Role</th>
-				
+				<th>Action</th>	
 			</tr>
         </thead>
 <tbody>
@@ -11,11 +21,13 @@
 	<% @users.each do |user| %>
 		<tr>
 		<td><%= user.email %></td>
-		<td><%= user.role.name %></td>	
+		<td><%= user.role.name %></td>
+		<td><%= link_to 'Edit User', edit_user_path(user) %></td>	
 		</tr>
 
 	<% end %>
 </tbody>
 </table>
+</html>
 
 <%= link_to 'New User', action: 'new' %>

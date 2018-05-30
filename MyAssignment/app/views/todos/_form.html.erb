@@ -1,8 +1,0 @@
-<p>
-    <%= f.label :description %><br />
-    <%= f.text_field :description %><br />
-    <p>Assign Project </p>
-    <%= collection_select(:todo, :project_id, Project.all, :id, :name) %>
-    <p>Assign developer</p>
-    <%= collection_select(:todo, :user_id, User.all, :id, :name) %>
-</p>

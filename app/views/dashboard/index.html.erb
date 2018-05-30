@@ -1,1 +1,75 @@
-<h1>h</h1>
+<html>
+<head>
+<style>
+table, th, td, tr {
+    border: 1px solid black;
+    width: 100px;
+}
+</style>
+</head>
+
+<table class="grid" cellpadding="10" cellspacing="0">
+	<thead>
+		<tr>
+			<th>Status</th>
+				<% Project.all.each do |project| %>
+					<th><%= "#{project.name}" %></th>
+				<% end %>
+				
+			</tr>
+        </thead>
+	<tbody>
+		<tr>
+			<td>Done</td>
+			<% Project.all.each do |project| %>	
+				<% if project.todos.where(status: 'done').nil? %> 
+					<td></td> 
+				<% else %> 
+					<td>	
+						<% project.todos.where(status: 'done').each do |task| %>
+							<%= task.description %>
+						<% end %> 
+					</td>
+				<% end %>
+			<% end %>
+		</tr>
+		
+
+      <tr>
+			<td>In-progress</td>
+			<% Project.all.each do |project| %>	
+				<% if project.todos.where(status: 'in-progress').nil? %> 
+					<td></td> 
+				<% else %> 
+					<td>	
+						<% project.todos.where(status: 'in-progress').each do |task| %>
+							<%= task.description %>
+						<% end %> 
+					</td>
+				<% end %>
+			<% end %>
+		</tr>
+
+
+		<tr>
+			<td>New Task</td>
+			<% Project.all.each do |project| %>	
+				<% if project.todos.where(status: 'new').nil? %> 
+					<td></td> 
+				<% else %> 
+					<td>	
+						<% project.todos.where(status: 'new').each do |task| %>
+							<%= task.description %>
+						<% end %> 
+					</td>
+				<% end %>
+			<% end %>
+		</tr>
+		
+	</tbody>
+</table>
+
+
+</html>
+
+

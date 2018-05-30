@@ -1,9 +1,0 @@
-<%= form_for @project do |f| %>
-	<fieldset>
-		<legend>New Project</legend>
-		<%= render partial: 'form', locals: {f: f, project: @project} %>
-		<%= submit_tag "Create"%> <%= link_to 'Cancel', projects_path %>
-	</fieldset>
-<% end %>
-
-

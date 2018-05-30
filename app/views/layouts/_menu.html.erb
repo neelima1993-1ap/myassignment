@@ -1,3 +1,50 @@
+<html>
+<head>
+<style>
+* {box-sizing: border-box;}
+
+body { 
+  margin: 0;
+  font-family: Arial;
+}
+
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header a:hover {
+  background-color: lightblue;;
+  color: black;
+}
+
+
+</style>
+</head>
+
+
 <% if user_signed_in? %>
-    <%= link_to 'Dashboard', dashboard_index_path %>&nbsp;<%= link_to 'Users', users_path %>&nbsp;<%= link_to 'Projects', projects_path %>&nbsp;<%= link_to 'Todos', todos_path %>&nbsp;<div style="float: right;"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></div>
+<div class="header">
+<div>
+    <%= link_to 'Dashboard', dashboard_index_path , {class: 'active'} %>
+    <%= link_to 'Users', users_path %>
+    <%= link_to 'Projects', projects_path %>
+    <%= link_to 'Todos', todos_path %>
+    <div style="float: right;"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></div>
 <% end %>
+
+</div>
+</div>
+</html>

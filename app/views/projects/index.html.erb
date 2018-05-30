@@ -1,25 +1,42 @@
-<table class="grid" cellpadding="0" cellspacing="0">
+<html>
+<head>
+<style>
+table, th, td, tr {
+    border: 1px solid black;
+    width: 50%;
+}
+</style>
+</head>
+
+
+<table class="grid" cellpadding="10" cellspacing="0">
 		<thead>
 			<tr>
 				<th>Project Name</th>
 				<th>Developers</th>
-
-				
+ 				<th>Action</th>		
 			</tr>
         </thead>
 <tbody>
 
 	<% @projects.each do |project| %>
 		<tr>
-		<td><%= project.name %></td>
-		<% project.users.each do |developer| %>
-				<td><%= developer.name %></td>	
-		<% end %>
-		<td><%= link_to "View TODos",  todos_url(project_id: project)%> </td>
+			<td>
+				<%= project.name %>	
+			</td>
+			<td> 
+				<% project.users.each do |developer| %>
+					<%= developer.name %>
+				<% end %>	
+			</td>	
+			<td>
+				<%= link_to 'Edit Project', edit_project_path(project) %>		
+			</td>
 		</tr>
-
 	<% end %>
 </tbody>
 </table>
+
+</html>
 
 <%= link_to 'New Project', action: 'new' %>

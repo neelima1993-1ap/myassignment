@@ -4,5 +4,5 @@
     <p>Assign Project </p>
     <%= f.collection_select :project_id, Project.all, :id, :name %>
     <p>Assign developer</p>
-<%= f.collection_select :user_id, User.all, :id, :name %>
+<%= f.collection_select :user_id, User.developers, :id, :name %>
 </p>
