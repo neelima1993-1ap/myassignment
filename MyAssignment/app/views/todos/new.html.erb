@@ -1,0 +1,9 @@
+<%= form_for @todo do |f| %>
+	<fieldset>
+		<legend>New Task</legend>
+		<%= render partial: 'form', locals: {f: f, todo: @todo} %>
+		<%= submit_tag "Create"%> <%= link_to 'Cancel', todos_path %>
+	</fieldset>
+<% end %>
+
+

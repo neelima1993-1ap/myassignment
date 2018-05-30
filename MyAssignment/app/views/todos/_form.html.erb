@@ -1,12 +1,13 @@
 <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %><br />
-
+    <p>Assign Project </p>
+    <%= collection_check_boxes :todo, :project, Project.all, :id, :name %>
     <p>Assign developer</p>
      <!-- <%= collection_check_boxes(:project, :users, User.all, :id, :name) %>  -->
 
-<%= f.collection_check_boxes :user_ids, User.all, :id, :name, include_hidden: false  %>
-</p>
+<%= collection_check_boxes :todo, :user, User.all, :id, :name %>
 
+</p>
 
 
