@@ -1,0 +1,9 @@
+<%= form_for @user do |f| %>
+	<fieldset>
+		<legend>New User</legend>
+		<%= render partial: 'form', locals: {f: f, user: @user} %>
+		<%= submit_tag "Create"%> <%= link_to 'Cancel', users_path %>
+	</fieldset>
+<% end %>
+
+
