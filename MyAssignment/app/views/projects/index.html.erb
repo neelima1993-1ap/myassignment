@@ -13,7 +13,7 @@
 		<tr>
 		<td><%= project.name %></td>
 		<% project.users.each do |developer| %>
-				<td><%= developer.name %></td>	
+			<td><%= developer.name %></td>	
 		<% end %>
 		<td><%= link_to "View TODos",  todos_url(project_id: project)%> </td>
 		</tr>

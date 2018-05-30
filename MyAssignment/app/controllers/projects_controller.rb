@@ -21,9 +21,13 @@ class ProjectsController < ApplicationController
 	    end
 	end
 
+	def edit
+
+	end
+
 private
 
   def project_params
-    params.require(:project).permit(:name , users: [] )
+    params.require(:project).permit(:name , user_ids: [] )
   end
 end
