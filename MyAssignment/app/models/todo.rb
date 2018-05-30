@@ -1,8 +1,6 @@
-=beginclass Todo < ApplicationRecord
-	has_and_belongs_to_many :projects
-end
-=end
-
 class Todo < ApplicationRecord
+	validates_inclusion_of :status, :in => %w( new in-progress done )
+	validates_associated :project
 	belongs_to :project
+	belongs_to :user
 end

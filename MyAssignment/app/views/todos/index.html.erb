@@ -12,8 +12,8 @@
 	<% @todos.each do |todo| %>
 		<tr>
 		<td><%= todo.description %></td>
-		<td><%= todo.project %></td>	
-		<td><%= todo.user %></td>
+		<td><%= todo.project.name %></td>	
+		<td><%= todo.user.name %></td>
 	<% end %>
 
 </tbody>
