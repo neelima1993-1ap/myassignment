@@ -1,5 +1,5 @@
+<div style="padding: 50px 50px 50px 50px;">
 <h2>Log in</h2>
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -10,6 +10,7 @@
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
+  <br>
 
   <div class="actions">
     <%= f.submit "Log in" %>
@@ -17,3 +18,4 @@
 <% end %>
 
 <%= render "users/shared/links" %>
+</div>

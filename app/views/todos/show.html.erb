@@ -4,7 +4,7 @@
 
 article {
     margin-left: 170px;
-    border-left: 1px solid gray;
+    border-left: 1px ;
     padding: 1em;
     overflow: hidden;
 }
@@ -15,7 +15,9 @@ article {
 <article>
   <h1><%= @todo.name %> Description: </h1>
   <p><%= @todo.description %></p>
+  <%= link_to 'Back' , dashboard_index_path %>
 </article>
+
 
 </body>
 </html>

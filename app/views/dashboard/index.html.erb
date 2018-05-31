@@ -8,19 +8,20 @@ table, th, td, tr {
 </style>
 </head>
 
+
 <table class="grid" cellpadding="10" cellspacing="0">
 	<thead>
 		<tr>
-			<th>Status</th>
+			<th bgcolor="lightblue" >Status</th>
 				<% Project.all.each do |project| %>
-					<th><%= "#{project.name}" %></th>
+					<th bgcolor="lightblue"><%= "#{project.name}" %></th>
 				<% end %>
 				
 			</tr>
         </thead>
 	<tbody>
 		<tr>
-			<td>Done</td>
+			<td bgcolor="lightgreen">Done</td>
 			<% Project.all.each do |project| %>	
 				<% if project.todos.where(status: 'done').nil? %> 
 					<td></td> 
@@ -36,7 +37,7 @@ table, th, td, tr {
 		
 
       <tr>
-			<td>In-progress</td>
+			<td bgcolor="red">In-progress</td>
 			<% Project.all.each do |project| %>	
 				<% if project.todos.where(status: 'in-progress').nil? %> 
 					<td></td> 
@@ -52,7 +53,7 @@ table, th, td, tr {
 
 
 		<tr>
-			<td>New Task</td>
+			<td bgcolor="orange">New Task</td>
 			<% Project.all.each do |project| %>	
 				<% if project.todos.where(status: 'new').nil? %> 
 					<td></td> 
