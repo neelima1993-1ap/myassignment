@@ -23,6 +23,11 @@ class ProjectsController < ApplicationController
     	@project = Project.find(params[:id])
   	end
 
+	def show
+    	@project = Project.find(params[:id])
+    	@todos_graph = @project.todos.group(:status).count.to_a
+  	end
+
     def update
 	    @project = Project.find(params[:id])
 	    if @project.update_attributes(project_params)

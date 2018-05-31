@@ -3,7 +3,6 @@
 <style>
 table, th, td, tr {
     border: 1px solid black;
-    width: 50%;
 }
 </style>
 </head>
@@ -30,7 +29,7 @@ table, th, td, tr {
 				<% end %>	
 			</td>	
 			<td>
-				<%= link_to 'Edit Project', edit_project_path(project) %>		
+				<%= link_to 'Edit Project', edit_project_path(project) %>&nbsp;&nbsp;<%= link_to 'Show', project_path(project)%>		
 			</td>
 		</tr>
 	<% end %>

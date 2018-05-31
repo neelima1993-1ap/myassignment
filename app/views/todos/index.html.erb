@@ -3,32 +3,12 @@
 <style>
 table, th, td, tr {
     border: 1px solid black;
-    width: 50%;
 }
 </style>
 </head>
 
 <table class="grid" cellpadding="10" cellspacing="0">
-		<thead>
-			<tr>
-				<th>Task Description</th>
-				<th>Project</th>
-				<th>Developer Assigned</th>
-				<th>Action</th>
-				
-			</tr>
-        </thead>
-<tbody>
-
-	<% @todos.each do |todo| %>
-		<tr>
-		<td><%= todo.description %></td>
-		<td><%= todo.project.name %></td>	
-		<td><%= todo.user.name %></td>
-		<td><%= link_to 'Edit task', edit_todo_path(todo) %></td>
-	<% end %>
-
-</tbody>
+  <%= render partial: "#{current_user.user_role}", locals: {todos:  @todos} %>
 </table>
-
-<%= link_to 'Create new task', action: 'new' %>
+<br>
+<%= link_to 'Create new task', action: 'new' if current_user.user_role.eql?('admin') %>

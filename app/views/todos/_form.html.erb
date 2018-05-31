@@ -1,8 +1,15 @@
 <p>
-    <%= f.label :description %><br />
-    <%= f.text_field :description %><br />
+  <% if current_user.user_role.eql?('admin') %><br />
+    <p>Task name</p>
+    <%= f.text_field :name %><br />
+    <p>Task Description</p>
+    <%= f.text_area :description %><br />
     <p>Assign Project </p>
     <%= f.collection_select :project_id, Project.all, :id, :name %>
     <p>Assign developer</p>
-<%= f.collection_select :user_id, User.developers, :id, :name %>
+    <%= f.collection_select :user_id, User.developers, :id, :name %>
+  <% else %>
+    <p>Status</p>
+    <%= select_tag "todo[status]", options_for_select(["in-progress", "done"]) %>
+  <% end %>
 </p>

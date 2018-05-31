@@ -27,7 +27,7 @@ table, th, td, tr {
 				<% else %> 
 					<td>	
 						<% project.todos.where(status: 'done').each do |task| %>
-							<%= task.description %>
+							<%= link_to task.name, todo_path(task) %>
 						<% end %> 
 					</td>
 				<% end %>
@@ -43,7 +43,7 @@ table, th, td, tr {
 				<% else %> 
 					<td>	
 						<% project.todos.where(status: 'in-progress').each do |task| %>
-							<%= task.description %>
+							<%= link_to task.name, todo_path(task) %>
 						<% end %> 
 					</td>
 				<% end %>
@@ -59,7 +59,7 @@ table, th, td, tr {
 				<% else %> 
 					<td>	
 						<% project.todos.where(status: 'new').each do |task| %>
-							<%= task.description %>
+							<%= link_to task.name, todo_path(task) %>
 						<% end %> 
 					</td>
 				<% end %>
@@ -71,5 +71,3 @@ table, th, td, tr {
 
 
 </html>
-
-

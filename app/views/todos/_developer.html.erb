@@ -1,0 +1,18 @@
+<thead>
+  <tr>
+    <th>Task Description</th>
+    <th>Project</th>
+    <th>Status</th>
+    <th>Action</th>
+  </tr>
+</thead>
+
+<tbody>
+  <% todos.each do |todo| %>
+    <tr>
+    <td><%= todo.description %></td>
+    <td><%= todo.project.name %></td> 
+    <td><%= todo.status %></td> 
+    <td><%= link_to 'Edit task', edit_todo_path(todo) %> <br/></td>
+  <% end %>
+</tbody>

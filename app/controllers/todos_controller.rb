@@ -1,7 +1,11 @@
 class TodosController < ApplicationController
 
 	def index
-		@todos = Todo.all
+		if current_user.user_role.eql?('admin')
+		  @todos = Todo.all
+	  else
+	      @todos = current_user.todos
+	  end
 	end
 
 	def new
@@ -20,22 +24,26 @@ class TodosController < ApplicationController
 
 
 	def edit
-    	@todo = Todo.find(params[:id])
-  	end
+    @todo = Todo.find(params[:id])
+  end
 
-    def update
-	    @todo = Todo.find(params[:id])
-	    if @todo.update_attributes(todo_params)
-	     	redirect_to action: 'index'
-	    else
-	      render action: 'edit'
-	    end
-    end
+  def show
+    @todo= Todo.find(params[:id])
+  end
+
+  def update
+	  @todo = Todo.find(params[:id])
+	  if @todo.update_attributes(todo_params)
+	    redirect_to action: 'index'
+	  else
+	    render action: 'edit'
+	  end
+  end
 
 
 private
 
   def todo_params
-    params.require(:todo).permit(:description , :project_id , :user_id )
+    params.require(:todo).permit(:name, :description , :project_id , :user_id, :status )
   end
 end
